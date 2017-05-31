@@ -1,4 +1,6 @@
-# Deveo vue-toastr
+# @Deveodk/vue-toastr
+
+<img src="https://cloud.githubusercontent.com/assets/7561792/26641086/c3acfbd6-4629-11e7-8883-600f1cbb7b55.png" width="100%" />
 
 [![npm](https://img.shields.io/npm/v/@deveodk/vue-toastr.svg)](https://www.npmjs.com/package/@deveodk/vue-toastr) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
@@ -28,12 +30,12 @@ Vue.use(VueToastr)
 ```html
 <!-- Include after Vue -->
 <!-- Local files -->
-<link rel="stylesheet" href="/@deveodk/vue-toastr/dist/vue-toastr.css"></link>
-<script src="/@deveodk/vue-toastr/dist/vue-toastr.js"></script>
+<link rel="stylesheet" href="/dist/@deveodk/vue-toastr.min.css"></link>
+<script src="/dist/@deveodk/vue-toastr.min.js"></script>
 
 <!-- From CDN -->
-<link rel="stylesheet" href="https://unpkg.com/@deveodk/vue-toastr/dist/vue-toastr.css"></link>
-<script src="https://unpkg.com/@deveodk/vue-toastr"></script>
+<link rel="stylesheet" href="https://unpkg.com/@deveodk/vue-toastr@1.0.0/dist/@deveodk/vue-toastr.min.css"></link>
+<script src="https://unpkg.com/@deveodk/vue-toastr@1.0.0/dist/@deveodk/vue-toastr.min.js"></script>
 ```
 
 ## Configuration
@@ -141,4 +143,4 @@ A special thanks to [s4l1h](https://github.com/s4l1h) for creating the original 
 
 [MIT](http://opensource.org/licenses/MIT)
 
-#### Made with <3 by deveo
+![madewithloveandcofee](https://cloud.githubusercontent.com/assets/7561792/26640815/14beb45c-4629-11e7-89db-fbca538a6be5.png)
