@@ -1,24 +1,25 @@
 # Deveo vue-toastr
 
-[![npm](https://img.shields.io/npm/v/vue-toastr.svg)](https://www.npmjs.com/package/vue-toastr) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
+[![npm](https://img.shields.io/npm/v/@deveodk/vue-toastr.svg)](https://www.npmjs.com/package/@deveodk/vue-toastr) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
-> A Vue.js Plugin
+> A easy to use toastr plugin inspired by CodeSeven/toastr made without jquery with pure vue.js
 
 ## Installation
 
 ```bash
-npm install --save vue-toastr
+npm install --save @deveodk/vue-toastr
 ```
 
-## Usage
+
 
 ### Bundler (Webpack, Rollup)
 
 ```js
 import Vue from 'vue'
-import VueToastr from 'vue-toastr'
+import VueToastr from '@deveodk/vue-toastr'
 // You need a specific loader for CSS files like https://github.com/webpack/css-loader
-import 'vue-toastr/dist/vue-toastr.css'
+// If you would like custom styling of the toastr the css file can be replaced
+import '@deveodk/vue-toastr/dist/vue-toastr.css'
 
 Vue.use(VueToastr)
 ```
@@ -28,51 +29,114 @@ Vue.use(VueToastr)
 ```html
 <!-- Include after Vue -->
 <!-- Local files -->
-<link rel="stylesheet" href="vue-toastr/dist/vue-toastr.css"></link>
-<script src="vue-toastr/dist/vue-toastr.js"></script>
+<link rel="stylesheet" href="/@deveodk/vue-toastr/dist/vue-toastr.css"></link>
+<script src="/@deveodk/vue-toastr/dist/vue-toastr.js"></script>
 
 <!-- From CDN -->
-<link rel="stylesheet" href="https://unpkg.com/vue-toastr/dist/vue-toastr.css"></link>
-<script src="https://unpkg.com/vue-toastr"></script>
+<link rel="stylesheet" href="https://unpkg.com/@deveodk/vue-toastr/dist/vue-toastr.css"></link>
+<script src="https://unpkg.com/@deveodk/vue-toastr"></script>
 ```
 
-## Development
+## Configuration
+The toastr defaults can be configured in the following way
 
-### Launch visual tests
-
-```bash
-npm run dev
+Available positions: 
+```code
+'toast-top-right'
+'toast-bottom-right'
+'toast-bottom-left'
+'toast-top-left'
+'toast-top-full-width'
+'toast-bottom-full-width'
+'toast-top-center'
+'toast-bottom-center'
 ```
 
-### Launch Karma with coverage
-
-```bash
-npm run dev:coverage
-```
-
-### Build
-
-Bundle the js and css of to the `dist` folder:
-
-```bash
-npm run build
+Available types: 
+```code
+'success'
+'error'
+'info'
+'warning'
 ```
 
 
-## Publishing
-
-The `prepublish` hook will ensure dist files are created before publishing. This
-way you don't need to commit them in your repository.
-
-```bash
-# Bump the version first
-# It'll also commit it and create a tag
-npm version
-# Push the bumped package and tags
-git push --follow-tags
-# Ship it 🚀
-npm publish
+```code
+import VueToastr from '@deveodk/vue-toastr'
+Vue.use(VueToastr, {
+    defaultPosition: 'toast-bottom-left',
+    defaultType: 'info',
+    defaultTimeout: 1000
+})
 ```
+
+## Usage
+
+The `$toastr` prototype hook and how to use it.
+
+```code
+# Make a success toastr
+this.$toastr('success, 'i am a toastr success', 'hello')
+```
+
+```code
+# Make a error toastr
+this.$toastr('error, 'i am a toastr error', 'hello')
+```
+
+```code
+# Make a warning toastr
+this.$toastr('warning, 'i am a toastr warning', 'hello')
+```
+
+```code
+# Make a info toastr
+this.$toastr('info, 'i am a toastr info', 'hello')
+```
+
+```code
+# Make a toastr with custom properties
+this.$toastr('add, {
+  title: 'Heyy', // Toast Title
+  msg: 'I am a custom property toastr' // Message
+  clickClose: false, // Click Close Disable
+  timeout: 1000, // Timeout in ms
+  position: 'toast-bottom-full-width', // Toastr position
+  type: 'info', // Toastr type
+  # Available callbacks
+  closeOnHover: On mouse over stop timeout can be boolean; default true
+  clickClose: On click toast close can be boolean; default false
+  onCreated: On created toast event can be function
+  onClicked: On clicked toast event can be function
+  onClosed: On closed toast event can be function
+  onMouseOver: On mouse over toast event can be function
+  onMouseOut: On mouse over toast event can be function
+})
+```
+
+## example
+```code
+# Using toastr in real world application
+<link rel="stylesheet" href="/@deveodk/vue-toastr/dist/vue-toastr.css"></link>
+<script src="/@deveodk/vue-toastr/dist/vue-toastr.js"></script>
+<script>
+new Vue({
+  el: 'body',
+  mounted: function () {
+      this.showToastr()
+   },
+  methods: {
+    showToastr: function () {
+        this.$toastr('success', 'it works!', 'Yeahh'
+    }
+  }
+})
+</script>
+```
+
+
+## Special thanks
+A special thanks to [s4l1h](https://github.com/s4l1h) for creating the original package. About 30% of the source code is forked from vue-toastr
 
 ## License
 

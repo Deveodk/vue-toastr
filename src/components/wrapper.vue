@@ -219,21 +219,11 @@
         },
         data () {
             return {
-                positions: [],
-                defaultPosition: 'toast-bottom-right',
-                defaultType: 'success',
-                defaultCloseOnHover: true,
-                defaultTimeout: 5000,
+                positions: ['toast-top-right', 'toast-bottom-right', 'toast-bottom-left', 'toast-top-left', 'toast-top-full-width', 'toast-bottom-full-width', 'toast-top-center', 'toast-bottom-center'],
                 list: []
             }
         },
-        mounted () {
-          this.setDefaults()
-        },
         methods: {
-            setDefaults () {
-               this.positions = ['toast-top-right', 'toast-bottom-right', 'toast-bottom-left', 'toast-top-left', 'toast-top-full-width', 'toast-bottom-full-width', 'toast-top-center', 'toast-bottom-center']
-            },
             addToast (data) {
                 this.list.push(data)
                 // if have onCreated
