@@ -11,7 +11,6 @@ npm install --save @deveodk/vue-toastr
 ```
 
 
-
 ### Bundler (Webpack, Rollup)
 
 ```js
@@ -141,3 +140,5 @@ A special thanks to [s4l1h](https://github.com/s4l1h) for creating the original 
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
+
+#### Made with <3 by deveo
