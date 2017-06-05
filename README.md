@@ -6,12 +6,18 @@
 
 > A easy to use toastr plugin inspired by CodeSeven/toastr made without jquery with pure vue.js
 
+# Demo
+See a functioning demo
+<a href="https://packages.deveo.io/packages/vue/vue-toastr">deveo demo site</a>
+
+
 ## Installation
 
 ```bash
 npm install --save @deveodk/vue-toastr
 ```
 
+## Usage
 
 ### Bundler (Webpack, Rollup)
 
@@ -28,14 +34,9 @@ Vue.use(VueToastr)
 ### Browser
 
 ```html
-<!-- Include after Vue -->
-<!-- Local files -->
-<link rel="stylesheet" href="/dist/@deveodk/vue-toastr.min.css"></link>
-<script src="/dist/@deveodk/vue-toastr.min.js"></script>
-
 <!-- From CDN -->
-<link rel="stylesheet" href="https://unpkg.com/@deveodk/vue-toastr@1.0.0/dist/@deveodk/vue-toastr.min.css"></link>
-<script src="https://unpkg.com/@deveodk/vue-toastr@1.0.0/dist/@deveodk/vue-toastr.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@deveodk/vue-toastr/dist/@deveodk/vue-toastr.min.css"></link>
+<script src="https://unpkg.com/@deveodk/vue-toastr/dist/@deveodk/vue-toastr.min.js"></script>
 ```
 
 ## Configuration

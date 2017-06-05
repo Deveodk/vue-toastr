@@ -1,6 +1,6 @@
 {
   "name": "@deveodk/vue-toastr",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A easy to use toastr plugin inspired by CodeSeven/toastr made without jquery with pure vue.js",
   "keywords": [
     "vuejs",
@@ -127,12 +127,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Deveodk/vue-toastr.git"
+    "url": "git+https://github.com/deveodk/vue-toastr.git"
   },
   "bugs": {
-    "url": "https://github.com/Deveodk/vue-toastr/issues"
+    "url": "https://github.com/deveodk/vue-toastr/issues"
   },
-  "homepage": "https://github.com/Deveodk/vue-toastr#readme",
+  "homepage": "https://github.com/deveodk/vue-toastr#readme",
   "license": {
     "type": "MIT",
     "url": "http://www.opensource.org/licenses/mit-license.php"
