@@ -9,6 +9,7 @@
     </div>
 </template>
 <style>
+
     .toast-title {
         font-weight: bold;
     }
@@ -100,9 +101,9 @@
         /*overrides*/
     }
     .toast-container * {
+        box-sizing: border-box;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
-        box-sizing: border-box;
     }
     .toast-container > div {
         position: relative;
@@ -111,23 +112,24 @@
         margin: 0 0 6px;
         padding: 15px 15px 15px 50px;
         width: 300px;
+        border-radius: 3px 3px 3px 3px;
         -moz-border-radius: 3px 3px 3px 3px;
         -webkit-border-radius: 3px 3px 3px 3px;
-        border-radius: 3px 3px 3px 3px;
         background-position: 15px center;
         background-repeat: no-repeat;
+        box-shadow: 0 0 12px #999999;
         -moz-box-shadow: 0 0 12px #999999;
         -webkit-box-shadow: 0 0 12px #999999;
-        box-shadow: 0 0 12px #999999;
         color: #FFFFFF;
         opacity: 0.8;
         -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
         filter: alpha(opacity=80);
+        margin: 0px !important;
     }
     .toast-container > :hover {
+        box-shadow: 0 0 12px #000000;
         -moz-box-shadow: 0 0 12px #000000;
         -webkit-box-shadow: 0 0 12px #000000;
-        box-shadow: 0 0 12px #000000;
         opacity: 1;
         -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
         filter: alpha(opacity=100);
@@ -148,17 +150,19 @@
     .toast-container.toast-top-center > div,
     .toast-container.toast-bottom-center > div {
         width: 300px;
-        margin-left: auto;
-        margin-right: auto;
+        float: none;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
     .toast-container.toast-top-full-width > div,
     .toast-container.toast-bottom-full-width > div {
-        width: 96%;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
     .toast {
         background-color: #030303;
+        top: initial;
     }
     .toast-success {
         background-color: #51A351;
