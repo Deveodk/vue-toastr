@@ -9,7 +9,6 @@
     </div>
 </template>
 <style>
-
     .toast-title {
         font-weight: bold;
     }
@@ -59,7 +58,7 @@
         -webkit-appearance: none;
     }
     .toast-top-center {
-        top: 0;
+        top: 6px;
         right: 0;
         width: 100%;
     }
@@ -74,7 +73,7 @@
         width: 100%;
     }
     .toast-bottom-full-width {
-        bottom: 0;
+        bottom: -6px;
         right: 0;
         width: 100%;
     }
@@ -88,10 +87,10 @@
     }
     .toast-bottom-right {
         right: 12px;
-        bottom: 12px;
+        bottom: 6px;
     }
     .toast-bottom-left {
-        bottom: 12px;
+        bottom: 6px;
         left: 12px;
     }
     .toast-container {
@@ -124,7 +123,6 @@
         opacity: 0.8;
         -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
         filter: alpha(opacity=80);
-        margin: 0px !important;
     }
     .toast-container > :hover {
         box-shadow: 0 0 12px #000000;

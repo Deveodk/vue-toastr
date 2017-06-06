@@ -1,6 +1,6 @@
 {
   "name": "@deveodk/vue-toastr",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A easy to use toastr plugin inspired by CodeSeven/toastr made without jquery with pure vue.js",
   "keywords": [
     "vuejs",
