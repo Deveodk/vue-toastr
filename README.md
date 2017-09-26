@@ -78,22 +78,22 @@ The `$toastr` prototype hook and how to use it.
 
 ```code
 # Make a success toastr
-this.$toastr('success, 'i am a toastr success', 'hello')
+this.$toastr('success', 'i am a toastr success', 'hello')
 ```
 
 ```code
 # Make a error toastr
-this.$toastr('error, 'i am a toastr error', 'hello')
+this.$toastr('error', 'i am a toastr error', 'hello')
 ```
 
 ```code
 # Make a warning toastr
-this.$toastr('warning, 'i am a toastr warning', 'hello')
+this.$toastr('warning', 'i am a toastr warning', 'hello')
 ```
 
 ```code
 # Make a info toastr
-this.$toastr('info, 'i am a toastr info', 'hello')
+this.$toastr('info', 'i am a toastr info', 'hello')
 ```
 
 ```code
@@ -144,4 +144,4 @@ A special thanks to [s4l1h](https://github.com/s4l1h) for creating the original 
 
 [MIT](http://opensource.org/licenses/MIT)
 
-![madewithloveandcofee](https://cloud.githubusercontent.com/assets/7561792/26640815/14beb45c-4629-11e7-89db-fbca538a6be5.png)
+[![Deveo](https://s3-eu-west-1.amazonaws.com/rk-solutions/github_footer.png)](https://deveo.dk)
