@@ -129,7 +129,7 @@ new Vue({
    },
   methods: {
     showToastr: function () {
-        this.$toastr('success', 'it works!', 'Yeahh'
+        this.$toastr('success', 'it works!', 'Yeahh')
     }
   }
 })
