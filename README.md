@@ -43,7 +43,7 @@ Vue.use(VueToastr)
 The toastr defaults can be configured in the following way
 
 Available positions: 
-```code
+```js
 'toast-top-right'
 'toast-bottom-right'
 'toast-bottom-left'
@@ -55,7 +55,7 @@ Available positions:
 ```
 
 Available types: 
-```code
+```js
 'success'
 'error'
 'info'
@@ -63,7 +63,7 @@ Available types:
 ```
 
 
-```code
+```js
 import VueToastr from '@deveodk/vue-toastr'
 Vue.use(VueToastr, {
     defaultPosition: 'toast-bottom-left',
@@ -76,49 +76,49 @@ Vue.use(VueToastr, {
 
 The `$toastr` prototype hook and how to use it.
 
-```code
-# Make a success toastr
+```js
+// Make a success toastr
 this.$toastr('success', 'i am a toastr success', 'hello')
 ```
 
-```code
-# Make a error toastr
+```js
+// Make a error toastr
 this.$toastr('error', 'i am a toastr error', 'hello')
 ```
 
-```code
-# Make a warning toastr
+```js
+// Make a warning toastr
 this.$toastr('warning', 'i am a toastr warning', 'hello')
 ```
 
-```code
-# Make a info toastr
+```js
+// Make a info toastr
 this.$toastr('info', 'i am a toastr info', 'hello')
 ```
 
-```code
-# Make a toastr with custom properties
-this.$toastr('add, {
+```js
+// Make a toastr with custom properties
+this.$toastr('add', {
   title: 'Heyy', // Toast Title
   msg: 'I am a custom property toastr' // Message
   clickClose: false, // Click Close Disable
   timeout: 1000, // Timeout in ms
   position: 'toast-bottom-full-width', // Toastr position
   type: 'info', // Toastr type
-  # Available callbacks
-  closeOnHover: On mouse over stop timeout can be boolean; default true
-  clickClose: On click toast close can be boolean; default false
-  onCreated: On created toast event can be function
-  onClicked: On clicked toast event can be function
-  onClosed: On closed toast event can be function
-  onMouseOver: On mouse over toast event can be function
-  onMouseOut: On mouse over toast event can be function
+  closeOnHover: true, // On mouse over stop timeout can be boolean; default true
+  clickClose: false, // On click toast close can be boolean; default false
+  // Available callbacks
+  onCreated: () => console.log('toast was created'),
+  onClicked: () => console.log('toast was clicked'),
+  onClosed: () => console.log('toast was closed'),
+  onMouseOver: () => console.log('toast was moused over'),
+  onMouseOut: () => console.log('mouse left the toast')
 })
 ```
 
 ## example
-```code
-# Using toastr in real world application
+```js
+// Using toastr in real world application
 <link rel="stylesheet" href="/@deveodk/vue-toastr/dist/vue-toastr.css"></link>
 <script src="/@deveodk/vue-toastr/dist/vue-toastr.js"></script>
 <script>
