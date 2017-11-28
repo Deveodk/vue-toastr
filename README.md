@@ -43,7 +43,7 @@ Vue.use(VueToastr)
 The toastr defaults can be configured in the following way
 
 Available positions: 
-```code
+```js
 'toast-top-right'
 'toast-bottom-right'
 'toast-bottom-left'
@@ -55,7 +55,7 @@ Available positions:
 ```
 
 Available types: 
-```code
+```js
 'success'
 'error'
 'info'
@@ -63,7 +63,7 @@ Available types:
 ```
 
 
-```code
+```js
 import VueToastr from '@deveodk/vue-toastr'
 Vue.use(VueToastr, {
     defaultPosition: 'toast-bottom-left',
@@ -76,28 +76,28 @@ Vue.use(VueToastr, {
 
 The `$toastr` prototype hook and how to use it.
 
-```code
-# Make a success toastr
+```js
+// Make a success toastr
 this.$toastr('success', 'i am a toastr success', 'hello')
 ```
 
-```code
-# Make a error toastr
+```js
+// Make a error toastr
 this.$toastr('error', 'i am a toastr error', 'hello')
 ```
 
-```code
-# Make a warning toastr
+```js
+// Make a warning toastr
 this.$toastr('warning', 'i am a toastr warning', 'hello')
 ```
 
-```code
-# Make a info toastr
+```js
+// Make a info toastr
 this.$toastr('info', 'i am a toastr info', 'hello')
 ```
 
-```code
-# Make a toastr with custom properties
+```js
+// Make a toastr with custom properties
 this.$toastr('add, {
   title: 'Heyy', // Toast Title
   msg: 'I am a custom property toastr' // Message
@@ -117,8 +117,8 @@ this.$toastr('add, {
 ```
 
 ## example
-```code
-# Using toastr in real world application
+```js
+// Using toastr in real world application
 <link rel="stylesheet" href="/@deveodk/vue-toastr/dist/vue-toastr.css"></link>
 <script src="/@deveodk/vue-toastr/dist/vue-toastr.js"></script>
 <script>
