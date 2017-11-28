@@ -98,7 +98,7 @@ this.$toastr('info', 'i am a toastr info', 'hello')
 
 ```js
 // Make a toastr with custom properties
-this.$toastr('add, {
+this.$toastr('add', {
   title: 'Heyy', // Toast Title
   msg: 'I am a custom property toastr' // Message
   clickClose: false, // Click Close Disable
