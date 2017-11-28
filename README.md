@@ -105,14 +105,14 @@ this.$toastr('add', {
   timeout: 1000, // Timeout in ms
   position: 'toast-bottom-full-width', // Toastr position
   type: 'info', // Toastr type
-  # Available callbacks
-  closeOnHover: On mouse over stop timeout can be boolean; default true
-  clickClose: On click toast close can be boolean; default false
-  onCreated: On created toast event can be function
-  onClicked: On clicked toast event can be function
-  onClosed: On closed toast event can be function
-  onMouseOver: On mouse over toast event can be function
-  onMouseOut: On mouse over toast event can be function
+  closeOnHover: true, // On mouse over stop timeout can be boolean; default true
+  clickClose: false, // On click toast close can be boolean; default false
+  // Available callbacks
+  onCreated: () => console.log('toast was created'),
+  onClicked: () => console.log('toast was clicked'),
+  onClosed: () => console.log('toast was closed'),
+  onMouseOver: () => console.log('toast was moused over'),
+  onMouseOut: () => console.log('mouse left the toast')
 })
 ```
 
