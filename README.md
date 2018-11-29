@@ -101,7 +101,6 @@ this.$toastr('info', 'i am a toastr info', 'hello')
 this.$toastr('add', {
   title: 'Heyy', // Toast Title
   msg: 'I am a custom property toastr' // Message
-  clickClose: false, // Click Close Disable
   timeout: 1000, // Timeout in ms
   position: 'toast-bottom-full-width', // Toastr position
   type: 'info', // Toastr type
