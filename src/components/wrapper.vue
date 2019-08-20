@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-bind:class="'toast-container ' + position" v-for="position in positions">
+        <div v-bind:class="'toast-container ' + position" v-for="position in positions" v-bind:key="position">
             <template v-for="(optionsArray, index) in list">
                 <vue-toastr :data="optionsArray" :key="index" v-if="optionsArray.position === position">
                 </vue-toastr>
@@ -9,12 +9,112 @@
     </div>
 </template>
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+    @keyframes fadeInLeft {
+        0% { transform: translateX(200%); }
+        100% { transform: translateX(0%); }
+    }
+    @keyframes fadeInRight {
+        0% { transform: translateX(-200%); }
+        100% { transform: translateX(0%); }
+    }
+    .toast-bottom-left .toast,
+    .toast-top-left .toast {
+        animation: fadeInRight 0.3s ease-in-out forwards;
+        transform: translateX(-200%);
+    }
+    .toast-bottom-right .toast,
+    .toast-top-right .toast {
+        animation: fadeInLeft 0.3s ease-in-out forwards;
+        transform: translateX(200%);
+    }
+    .toast-bottom-left .toast:hover,
+    .toast-top-left .toast:hover {
+        margin-left: -4px;
+    }
+    .toast-bottom-right .toast:hover,
+    .toast-top-right .toast:hover {
+        margin-right: -4px;
+    }
+    .toast:hover {
+        opacity: .5;
+    }
+    .toast-top-full-width .toast,
+    .toast-bottom-full-width .toast {
+        border-radius: 0px !important;
+    }
+    .toast .left {
+        margin: 0 !important;
+        padding: 15px !important;
+    }
+    .toast .right {
+        background: #fff !important;
+        color: #172b43 !important;
+        padding: 15px !important;
+        flex-grow: 1 !important;
+    }
+    .toast .toast-title {
+        font-size: 16px;
+    }
+    .toast .toast-message {
+        font-size: 15px;
+    }
+    .toast.toast-success {
+        background-color: #4CAF50;
+    }
+    .toast.toast-success .toast-title {
+        color: #4CAF50;
+    }
+    .toast.toast-error {
+        background-color: #F44336;
+    }
+    .toast.toast-error .toast-title {
+        color: #F44336;
+    }
+    .toast.toast-info {
+        background-color: #172b43;
+    }
+    .toast.toast-info .toast-title {
+        color: #172b43;
+    }
+    .toast.toast-warning {
+        background-color: #FFA000;
+    }
+    .toast.toast-warning .toast-title {
+        color: #FFA000;
+    }
+    .fa-secondary {
+        opacity: 0.4;
+    }
+    .toast {
+        font-family: 'Roboto', sans-serif !important;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+        display: flex;
+        padding: 0px !important;
+        user-select: none;
+        transition: .3s ease all;
+    }
+    .left {
+        flex: 0 0 30px;
+        margin-right: 5px;
+        align-self: center;
+    }
+    .left svg {
+        width: 30px;
+        height: 30px;
+    }
+    .left svg path {
+        fill: #fff;
+    }
     .toast-title {
-        font-weight: bold;
+        font-weight: 600;
     }
     .toast-message {
         -ms-word-wrap: break-word;
         word-wrap: break-word;
+        font-weight: 100;
+        margin-top: 4px;
+        line-height: 1.2;
     }
     .toast-message a,
     .toast-message label {
@@ -32,20 +132,12 @@
         font-size: 20px;
         font-weight: bold;
         color: #FFFFFF;
-        -webkit-text-shadow: 0 1px 0 #ffffff;
-        text-shadow: 0 1px 0 #ffffff;
-        opacity: 0.8;
-        -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-        filter: alpha(opacity=80);
     }
     .toast-close-button:hover,
     .toast-close-button:focus {
-        color: #000000;
+        color: #172b43;
         text-decoration: none;
         cursor: pointer;
-        opacity: 0.4;
-        -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
-        filter: alpha(opacity=40);
     }
     /*Additional properties for button version
      iOS requires the button element instead of an anchor tag.
@@ -87,16 +179,17 @@
     }
     .toast-bottom-right {
         right: 12px;
-        bottom: 6px;
+        bottom: 2px;
     }
     .toast-bottom-left {
-        bottom: 6px;
+        bottom: 2px;
         left: 12px;
     }
     .toast-container {
         position: fixed;
         z-index: 999999;
         pointer-events: none;
+        transition: 3s ease all;
         /*overrides*/
     }
     .toast-container * {
@@ -108,32 +201,20 @@
         position: relative;
         pointer-events: auto;
         overflow: hidden;
-        margin: 0 0 6px;
-        padding: 15px 15px 15px 50px;
-        width: 300px;
+        margin: 0 0 10px;
+        padding: 15px;
+        width: 350px;
         border-radius: 3px 3px 3px 3px;
         -moz-border-radius: 3px 3px 3px 3px;
         -webkit-border-radius: 3px 3px 3px 3px;
         background-position: 15px center;
         background-repeat: no-repeat;
-        box-shadow: 0 0 12px #999999;
-        -moz-box-shadow: 0 0 12px #999999;
-        -webkit-box-shadow: 0 0 12px #999999;
         color: #FFFFFF;
-        opacity: 0.8;
-        -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-        filter: alpha(opacity=80);
     }
     .toast-container > :hover {
-        box-shadow: 0 0 12px #000000;
-        -moz-box-shadow: 0 0 12px #000000;
-        -webkit-box-shadow: 0 0 12px #000000;
-        opacity: 1;
-        -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-        filter: alpha(opacity=100);
         cursor: pointer;
     }
-    .toast-container > .toast-info {
+    /* .toast-container > .toast-info {
         background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVEhLtZa9SgNBEMc9sUxxRcoUKSzSWIhXpFMhhYWFhaBg4yPYiWCXZxBLERsLRS3EQkEfwCKdjWJAwSKCgoKCcudv4O5YLrt7EzgXhiU3/4+b2ckmwVjJSpKkQ6wAi4gwhT+z3wRBcEz0yjSseUTrcRyfsHsXmD0AmbHOC9Ii8VImnuXBPglHpQ5wwSVM7sNnTG7Za4JwDdCjxyAiH3nyA2mtaTJufiDZ5dCaqlItILh1NHatfN5skvjx9Z38m69CgzuXmZgVrPIGE763Jx9qKsRozWYw6xOHdER+nn2KkO+Bb+UV5CBN6WC6QtBgbRVozrahAbmm6HtUsgtPC19tFdxXZYBOfkbmFJ1VaHA1VAHjd0pp70oTZzvR+EVrx2Ygfdsq6eu55BHYR8hlcki+n+kERUFG8BrA0BwjeAv2M8WLQBtcy+SD6fNsmnB3AlBLrgTtVW1c2QN4bVWLATaIS60J2Du5y1TiJgjSBvFVZgTmwCU+dAZFoPxGEEs8nyHC9Bwe2GvEJv2WXZb0vjdyFT4Cxk3e/kIqlOGoVLwwPevpYHT+00T+hWwXDf4AJAOUqWcDhbwAAAAASUVORK5CYII=") !important;
     }
     .toast-container > .toast-error {
@@ -144,10 +225,10 @@
     }
     .toast-container > .toast-warning {
         background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGYSURBVEhL5ZSvTsNQFMbXZGICMYGYmJhAQIJAICYQPAACiSDB8AiICQQJT4CqQEwgJvYASAQCiZiYmJhAIBATCARJy+9rTsldd8sKu1M0+dLb057v6/lbq/2rK0mS/TRNj9cWNAKPYIJII7gIxCcQ51cvqID+GIEX8ASG4B1bK5gIZFeQfoJdEXOfgX4QAQg7kH2A65yQ87lyxb27sggkAzAuFhbbg1K2kgCkB1bVwyIR9m2L7PRPIhDUIXgGtyKw575yz3lTNs6X4JXnjV+LKM/m3MydnTbtOKIjtz6VhCBq4vSm3ncdrD2lk0VgUXSVKjVDJXJzijW1RQdsU7F77He8u68koNZTz8Oz5yGa6J3H3lZ0xYgXBK2QymlWWA+RWnYhskLBv2vmE+hBMCtbA7KX5drWyRT/2JsqZ2IvfB9Y4bWDNMFbJRFmC9E74SoS0CqulwjkC0+5bpcV1CZ8NMej4pjy0U+doDQsGyo1hzVJttIjhQ7GnBtRFN1UarUlH8F3xict+HY07rEzoUGPlWcjRFRr4/gChZgc3ZL2d8oAAAAASUVORK5CYII=") !important;
-    }
+    } */
     .toast-container.toast-top-center > div,
     .toast-container.toast-bottom-center > div {
-        width: 300px;
+        width: 350px;
         float: none;
         margin-left: auto !important;
         margin-right: auto !important;
@@ -159,32 +240,40 @@
         margin-right: auto;
     }
     .toast {
-        background-color: #030303;
+        background-color: #172b43;
         top: initial;
     }
-    .toast-success {
-        background-color: #51A351;
+    /* .toast-success {
+        background-color: rgba(76, 175, 80, 0.95);
     }
     .toast-error {
-        background-color: #BD362F;
+        background-color: rgba(255, 82, 82, 0.95);
     }
     .toast-info {
-        background-color: #2F96B4;
+        background-color: rgba(68, 138, 255, 0.95);
     }
     .toast-warning {
-        background-color: #F89406;
-    }
+        background-color: rgba(255, 193, 7, 0.95);
+    } */
     .toast-progress {
         position: absolute;
         left: 0;
         bottom: 0;
         height: 4px;
-        background-color: #000000;
-        opacity: 0.4;
-        -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
-        filter: alpha(opacity=40);
+        background-color: #172b43;
     }
     /*Responsive Design*/
+    @media all and (max-width: 300px) {
+        .toast-container {
+            width: calc(100% - 24px) !important;
+        }
+        .toast {
+            width: 100% !important;
+            display: block !important;
+            border-radius: 3px !important;
+            overflow: hidden !important;
+        }
+    }
     @media all and (max-width: 240px) {
         .toast-container > div {
             padding: 8px 8px 8px 50px;
@@ -207,7 +296,7 @@
     }
     @media all and (min-width: 481px) and (max-width: 768px) {
         .toast-container > div {
-            padding: 15px 15px 15px 50px;
+            padding: 15px;
             width: 25em;
         }
     }
@@ -279,7 +368,7 @@
                 }
             },
             error (msg, title) {
-                let data = this.processObjectData(msg)
+                const data = this.processObjectData(msg)
                 data['type'] = 'error'
                 if (title !== undefined) {
                     data['title'] = title
@@ -287,7 +376,7 @@
                 return this.AddData(data)
             },
             success (msg, title) {
-                let data = this.processObjectData(msg)
+                const data = this.processObjectData(msg)
                 data['type'] = 'success'
                 if (title !== undefined) {
                     data['title'] = title
@@ -295,7 +384,7 @@
                 return this.AddData(data)
             },
             warning (msg, title) {
-                let data = this.processObjectData(msg)
+                const data = this.processObjectData(msg)
                 data['type'] = 'warning'
                 if (title !== undefined) {
                     data['title'] = title
@@ -303,7 +392,7 @@
                 return this.AddData(data)
             },
             info (msg, title) {
-                let data = this.processObjectData(msg)
+                const data = this.processObjectData(msg)
                 data['type'] = 'info'
                 if (title !== undefined) {
                     data['title'] = title
